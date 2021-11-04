@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "konas",
+  "version": "${version}",
+  "name": "Konas",
+  "description": "A fabric utility mod aimed at anarchy servers.",
+  "authors": [
+    "Darki",
+    "GL_DONT_CARE",
+    "seasnail"
+  ],
+  "icon": "assets/konas/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.konasclient.konas.Konas"
+    ]
+  },
+  "mixins": [
+    "konas.mixins.json"
+  ],
+  "accessWidener" : "konas.aw",
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "minecraft": "1.16.5"
+  }
+}

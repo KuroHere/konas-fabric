@@ -1,0 +1,39 @@
+{
+  "targets": ["swap", "final"],
+  "passes": [{
+    "name": "other_outline_shader",
+    "intarget": "final",
+    "outtarget": "swap",
+    "uniforms": [{
+      "name": "outlineColor",
+      "values": [ 1.0, 0.0, 1.0, 1.0 ]
+    }, {
+      "name": "filledColor",
+      "values": [ 1.0, 0.0, 1.0, 0.25 ]
+    }, {
+      "name": "width",
+      "values": [ 1.0 ]
+    }, {
+      "name": "dotSpacing",
+      "values": [ 0.0 ]
+    }, {
+      "name": "vertical",
+      "values": [ 0.0 ]
+    }, {
+      "name": "dotSize",
+      "values": [ 1.0 ]
+    }, {
+      "name": "fillMode",
+      "values": [ 1.0 ]
+    }, {
+      "name": "dotMode",
+      "values": [ 1.0 ]
+    }
+    ]
+  }, {
+    "name": "blit",
+    "intarget": "swap",
+    "outtarget": "final"
+  }
+  ]
+}

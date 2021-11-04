@@ -1,0 +1,21 @@
+{
+  "targets": ["swap", "final"],
+  "passes": [{
+    "name": "world_outline_shader",
+    "intarget": "final",
+    "outtarget": "swap",
+    "uniforms": [{
+      "name": "outlineColor",
+      "values": [ 1.0, 0.0, 1.0, 1.0 ]
+    }, {
+      "name": "width",
+      "values": [ 1.0 ]
+    }
+    ]
+  }, {
+    "name": "blit",
+    "intarget": "swap",
+    "outtarget": "final"
+  }
+  ]
+}

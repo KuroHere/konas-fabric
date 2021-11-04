@@ -1,0 +1,48 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.konasclient.konas.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "AbstractBlockAccessor",
+    "ChatHudAccessor",
+    "ClientPlayerEntityAccessor",
+    "ClientPlayerEntityMixin",
+    "CommandSuggestorMixin",
+    "GameRendererMixin",
+    "MinecraftClientMixin",
+    "MouseAccessor",
+    "MouseMixin",
+    "RenderTickCounterMixin",
+    "Vec3dMixin",
+    "WorldRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "ArmorFeatureRendererMixin",
+    "BackgroundRendererMixin",
+    "BlockEntityRenderDispatcherMixin",
+    "BossBarHudMixin",
+    "CameraMixin",
+    "ChunkSkylightProviderMixin",
+    "ClientConnectionMixin",
+    "DimensionTypeAccesor",
+    "EntityMixin",
+    "EntityVelocityUpdateS2CPacketAccessor",
+    "ExplosionS2CPacketAccessor",
+    "FlowableFluidMixin",
+    "InGameHudMixin",
+    "InGameOverlayRendererMixin",
+    "KeyboardMixin",
+    "MapRendererMixin",
+    "MinecraftClientAccessor",
+    "ParticleManagerMixin",
+    "PlayerMoveC2SPacketAccessor",
+    "RenderEntityDispatcherMixin",
+    "ShaderEffectAccessor",
+    "SoundSystemMixin",
+    "WorldRendererAccessor"
+  ]
+}

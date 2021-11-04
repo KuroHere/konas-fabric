@@ -1,0 +1,70 @@
+plugins {
+    id 'fabric-loom' version '0.7-SNAPSHOT'
+    id 'maven-publish'
+}
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+minecraft {
+    accessWidener "src/main/resources/konas.aw"
+}
+
+repositories {
+    maven {
+        name = "konas-releases"
+        url = "https://maven.konasclient.com/releases"
+    }
+    maven {
+        name = "jitpack"
+        url = "https://jitpack.io"
+    }
+}
+
+dependencies {
+
+    // fabric base
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // meteor - baritone
+    modImplementation("com.github.MeteorDevelopment:baritone:${project.baritone_version}") {
+        exclude(group: "org.lwjgl.lwjgl", module: "lwjgl-platform")
+        exclude(group: "org.lwjgl.lwjgl", module: "lwjgl")
+        exclude(group: "net.java.jinput", module: "jinput-platform")
+        exclude(group: "net.java.jinput", module: "jinput")
+        exclude(group: "net.sf.jopt-simple", module: "jopt-simple")
+        exclude(group: "org.ow2.asm", module: "asm-debug-all")
+    }
+    include "com.github.MeteorDevelopment:baritone:${project.baritone_version}"
+
+    // meteor - orbit
+    modImplementation "com.github.MeteorDevelopment:orbit:${project.orbit_version}"
+    include "com.github.MeteorDevelopment:orbit:${project.orbit_version}"
+
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    def targetVersion = 8
+    if (JavaVersion.current().isJava9Compatible()) {
+        it.options.release = targetVersion
+    }
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}

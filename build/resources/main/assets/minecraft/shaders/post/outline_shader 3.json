@@ -1,0 +1,33 @@
+{
+  "targets": ["swap", "final"],
+  "passes": [{
+      "name": "outline_shader",
+      "intarget": "final",
+      "outtarget": "swap",
+      "uniforms": [{
+          "name": "outlineAlpha",
+          "values": [ 1.0 ]
+        }, {
+          "name": "filledAlpha",
+          "values": [ 0.25 ]
+        }, {
+          "name": "width",
+          "values": [ 1.0 ]
+        }, {
+          "name": "dotSpacing",
+          "values": [ 0.0 ]
+      }, {
+        "name": "vertical",
+        "values": [ 0.0 ]
+      }, {
+        "name": "dotSize",
+        "values": [ 1.0 ]
+      }
+      ]
+    }, {
+      "name": "blit",
+      "intarget": "swap",
+      "outtarget": "final"
+    }
+  ]
+}
